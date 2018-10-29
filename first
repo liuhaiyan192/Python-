@@ -1,0 +1,17 @@
+from bs4 import BeautifulSoup
+import requests
+
+# Beautiful Soup是一个非常流行的python模块，这个模块可以解析网页，并提供定位内容的便捷接口，
+# 对于Beautiful Soup的介绍，大家在网上都能查到，博主就不浪费时间了。对于python3.x必须安装Beautiful Soup4，其他版本可能安装不了。
+# 打开cmd编辑器，进入到beautifulsoup文件夹内
+# 执行
+# setup.py build
+# 然后执行
+# setup.py install
+# 这样 Beautiful Soup模块就顺利的安装到了python3.4里
+
+# 我的第一个爬虫代码
+url = 'https://www.taobao.com/'
+wb_data = requests.get(url)
+soup = BeautifulSoup(wb_data.text, 'lxml')
+print(soup)
