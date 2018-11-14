@@ -1,0 +1,19 @@
+import requests
+import re
+
+# 测试给链接添加头部信息，知乎必须要加上User-Agent信息，否则会拒绝抓取
+headers = {
+'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+}
+re = requests.get('https://www.zhihu.com/explore', headers=headers)
+# re.compile('', re.S)
+print(re.text)
+
+# 将GitHub图标保存到本地文件中
+# 若控制台出现乱码，表示，在打印的时候，直接转换类型出错，有可能是图片直接转换成str字符串
+# 控制台出现 b'’ 这种类型的乱码，表示是bytes类型的数据
+r = requests.get('https://github.com/favicon.ico')
+with open('favicon.ico', 'wb') as f:
+f.write(r.content)
+print(r.text)
+print(r.content)
