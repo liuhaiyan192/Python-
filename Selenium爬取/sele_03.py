@@ -1,0 +1,56 @@
+from selenium import webdriver
+import time
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver import ActionChains
+
+browser = webdriver.Chrome()
+url = 'https://www.zhihu.com/explore'
+# url = 'https://www.jianshu.com/p/003a5dff3730'
+browser.get(url)
+log = browser.find_element_by_id('zh-top-link-logo')
+print(log)
+print(log.get_attribute('class'))
+
+# 利用Javascript
+# browser.execute_script('window.scrollTo(0,document.body.scrollHeight)')
+# browser.execute_script('alert("To Bottom")')
+
+
+"""
+    基础测试
+"""
+# browser = webdriver.Chrome()
+# browser.get('https://www.taobao.com/')
+#
+# lis = browser.find_element_by_css_selector('.service-bd li')
+# print(lis)
+#
+# browser.close()
+
+"""
+    淘宝搜索连衣裙
+"""
+# browser = webdriver.Chrome()
+# browser.get('https://www.taobao.com')
+# input = browser.find_element_by_id('q')
+# input.send_keys('连衣裙')
+# #sent = browser.find_element_by_css_selector('#btn-search tb-bg')
+# # 键盘按下Enter键
+# input.send_keys(Keys.ENTER)
+# time.sleep(20)
+# input.clear()
+
+"""
+    测试鼠标移动功能
+"""
+# browser = webdriver.Chrome()
+# url = 'http://www.runoob.com/try/try.php?filename=jqueryui-api-droppable'
+# browser.get(url)
+# browser.switch_to.frame('iframeResult')
+# target = browser.find_element_by_id('droppable')
+# print(target)
+# source = browser.find_element_by_id('draggable')
+# # 创建ActionChains对象
+# actions = ActionChains(browser)
+# actions.drag_and_drop(source,target)
+# actions.perform()
